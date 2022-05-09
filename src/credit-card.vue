@@ -196,6 +196,8 @@ defineExpose({
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
 .container {
   --base-size: v-bind(getSize);
 }
@@ -282,15 +284,18 @@ defineExpose({
 
 .name .data {
   text-transform: uppercase;
+  font-family: "Source Code Pro", monospace;
 }
 
 .data {
   font-size: calc(var(--base-size) * 0.8);
+  font-family: "Source Code Pro", monospace;
 }
 
 .number {
   width: 100%;
   font-size: calc(var(--base-size) * 1.29);
+  font-family: "Source Code Pro", monospace;
 }
 
 .magnetic {
@@ -315,5 +320,6 @@ defineExpose({
 .code .data {
   width: calc(var(--base-size) * 2);
   padding-left: calc(var(--base-size) * 0.5);
+  font-family: "Source Code Pro", monospace;
 }
 </style>
