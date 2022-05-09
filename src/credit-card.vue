@@ -162,8 +162,8 @@ watch(() => props.data?.cvv, (cvv) => {
   codeApresentention.value = cvv?.substring(0, creditCardInfo.value?.code.size ?? 3)
 })
 
-const size = computed(() => {
-  return `${props.size ?? 20 * 20}px`;
+const getSize = computed(() => {
+  return `${props.size * 20}px`;
 });
 
 const logoImage = computed(() => {
@@ -197,13 +197,13 @@ defineExpose({
 
 <style scoped>
 .container {
-  --base-size: v-bind(size);
-  font-family: "Source Code Pro", monospace;
-  letter-spacing: 0;
-  color: white;
+  --base-size: v-bind(getSize);
 }
 
 .container * {
+  letter-spacing: 0;
+  color: white;
+  font-family: "Source Code Pro", monospace;
   margin: 0;
   padding: 0;
 }

@@ -1,6 +1,6 @@
 {
   "name": "@gabriel-paulucci/anne",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "repository": "https://github.com/Gabriel-Paulucci/anne",
   "main": "dist/credit-card.ssr.js",
