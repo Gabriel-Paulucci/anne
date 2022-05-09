@@ -1,6 +1,6 @@
 {
   "name": "@gabriel-paulucci/anne",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "repository": "https://github.com/Gabriel-Paulucci/anne",
   "main": "dist/credit-card.ssr.js",
@@ -33,6 +33,7 @@
     "@rollup/plugin-alias": "^3.1.2",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-dynamic-import-vars": "^1.4.3",
     "@rollup/plugin-node-resolve": "^9.0.0",
     "@rollup/plugin-replace": "^2.4.2",
     "@vue/cli-plugin-babel": "^4.5.13",

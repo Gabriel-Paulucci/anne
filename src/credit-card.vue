@@ -125,7 +125,7 @@ watch(() => props.data?.number, async (number) => {
       cardApresentention.value = prettyCardNumber(props.data?.number as string, creditCardInfo.value?.type)
       codeTypeApresentention.value = creditCardInfo.value.code.name
       color.value = cardColor[creditCardInfo.value.type]
-      logo.value = (await import(`@/assets/images/types/${creditCardInfo.value.type}.png`)).default
+      logo.value = (await import(`./assets/images/types/${creditCardInfo.value.type}.png`)).default
       return
     }
 
