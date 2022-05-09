@@ -6,7 +6,7 @@
         <div class="content">
           <div class="top">
             <img class="chip" src="@/assets/images/chip.png" alt="Chip image" />
-            <img v-if="logoImage != ''" class="logo" :src="logoImage" alt="Logo image" />
+            <img v-if="logo != ''" class="logo" :src="logo" alt="Logo image" />
           </div>
           <div class="middle">
             <div class="number">
@@ -112,8 +112,9 @@ const expirationApresentention = reactive<{
 const codeApresentention = ref<string | undefined>(undefined);
 const codeTypeApresentention = ref("CVV");
 const color = ref("#8f8f8f");
+const logo = ref("");
 
-watch(() => props.data?.number, (number) => {
+watch(() => props.data?.number, async (number) => {
   if (number) {
     const cardInfo = getCardType(number)
 
@@ -124,15 +125,19 @@ watch(() => props.data?.number, (number) => {
       cardApresentention.value = prettyCardNumber(props.data?.number as string, creditCardInfo.value?.type)
       codeTypeApresentention.value = creditCardInfo.value.code.name
       color.value = cardColor[creditCardInfo.value.type]
+      logo.value = (await import(`@/assets/images/types/${creditCardInfo.value.type}.png`)).default
       return
     }
 
     cardApresentention.value = prettyCardNumber(props.data?.number as string, "")
     codeTypeApresentention.value = "CVV"
+    logo.value = ""
     creditCardInfo.value = undefined
   } else {
     codeTypeApresentention.value = "CVV"
+    logo.value = ""
     cardApresentention.value = "#### #### #### ####"
+    creditCardInfo.value = undefined
   }
 })
 
@@ -165,14 +170,6 @@ watch(() => props.data?.cvv, (cvv) => {
 const getSize = computed(() => {
   return `${props.size * 20}px`;
 });
-
-const logoImage = computed(() => {
-  if (!creditCardInfo || !creditCardInfo.value) {
-    return ""
-  }
-
-  return require(`@/assets/images/types/${creditCardInfo.value.type}.png`)
-})
 
 function flip() {
   fliped.value = !fliped.value;
