@@ -16,7 +16,7 @@
           <div class="bottom">
             <div class="name">
               <p class="placeholder">{{ props.labels.name }}</p>
-              <p class="data">{{ !!props.data.name ? props.data.name : props.placeholders.name }}</p>
+              <p class="data">{{ !!props.data?.name ? props.data?.name : props.placeholders.name }}</p>
             </div>
             <div class="date">
               <p class="placeholder">{{ props.labels.expires }}</p>
@@ -163,7 +163,7 @@ watch(() => props.data?.cvv, (cvv) => {
 })
 
 const size = computed(() => {
-  return `${props.size * 20}px`;
+  return `${props.size ?? 20 * 20}px`;
 });
 
 const logoImage = computed(() => {

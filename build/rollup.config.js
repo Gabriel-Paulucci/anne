@@ -12,6 +12,7 @@ import { terser } from "rollup-plugin-terser";
 import ttypescript from "ttypescript";
 import typescript from "rollup-plugin-typescript2";
 import minimist from "minimist";
+import url from 'rollup-plugin-url'; 
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs
@@ -41,6 +42,9 @@ const baseConfig = {
           },
         ],
       }),
+      url({
+        include: ["**/*.png"]
+      })
     ],
     replace: {
       "process.env.NODE_ENV": JSON.stringify("production"),
@@ -65,7 +69,7 @@ const baseConfig = {
     ],
     babel: {
       exclude: "node_modules/**",
-      extensions: [".js", ".jsx", ".ts", ".tsx", ".vue"],
+      extensions: [".js", ".jsx", ".ts", ".tsx", ".vue", ".png"],
       babelHelpers: "bundled",
     },
   },

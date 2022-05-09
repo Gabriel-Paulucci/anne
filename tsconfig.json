@@ -7,6 +7,7 @@
         "declarationDir": "dist/types",
         "noUnusedLocals": true,
         "noUnusedParameters": true,
+        "noImplicitAny": false,
         "importHelpers": true,
         "moduleResolution": "node",
         "experimentalDecorators": true,
@@ -15,6 +16,7 @@
         "sourceMap": true,
         "baseUrl": ".",
         "newLine": "lf",
+        "jsx": "preserve",
         "types": [
             "node",
             "vue"
