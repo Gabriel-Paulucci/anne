@@ -13,6 +13,7 @@ import ttypescript from "ttypescript";
 import typescript from "rollup-plugin-typescript2";
 import minimist from "minimist";
 import url from 'rollup-plugin-url'; 
+import dynamicImportVars from '@rollup/plugin-dynamic-import-vars';
 
 // Get browserslist config and remove ie from es build targets
 const esbrowserslist = fs
@@ -43,6 +44,9 @@ const baseConfig = {
         ],
       }),
       url({
+        include: ["**/*.png"]
+      }),
+      dynamicImportVars({
         include: ["**/*.png"]
       })
     ],
